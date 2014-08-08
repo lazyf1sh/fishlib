@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -43,7 +44,10 @@ namespace FishLib
 
                     if (useCredentials)
 	        {
-		         request.Credentials = new NetworkCredential("i.kopylov", "06dF8c2b@963852");
+
+                string name = File.ReadAllLines(@"X:\db\passwords.txt")[0];
+                string pwd = File.ReadAllLines(@"X:\db\passwords.txt")[1];
+                request.Credentials = new NetworkCredential(name, pwd);
 	        }
 
             
