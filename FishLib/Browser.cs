@@ -108,6 +108,14 @@ namespace FishLib
                     request.CookieContainer = cookies;
                 }
 
+                if (useCredentials)
+                {
+
+                    string name = File.ReadAllLines(@"X:\db\passwords.txt")[0];
+                    string pwd = File.ReadAllLines(@"X:\db\passwords.txt")[1];
+                    request.Credentials = new NetworkCredential(name, pwd);
+                }
+
                 request.Method = "POST";
                 request.Timeout = 5000;
                 request.ContentType = "application/x-www-form-urlencoded";
@@ -148,6 +156,14 @@ namespace FishLib
             if (attachCookieContainer)
             {
                 request.CookieContainer = cookies;
+            }
+
+            if (useCredentials)
+            {
+
+                string name = File.ReadAllLines(@"X:\db\passwords.txt")[0];
+                string pwd = File.ReadAllLines(@"X:\db\passwords.txt")[1];
+                request.Credentials = new NetworkCredential(name, pwd);
             }
 
             request.Method = "POST";
