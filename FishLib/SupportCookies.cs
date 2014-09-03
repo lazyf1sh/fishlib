@@ -1,34 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace FishLib
 {
-    public class FilePaths
+    public class SupportCookies
     {
-        private static string AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-        private static string Desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-
-        public static string AppDataMGT
+        public static string K4Cookie
         {
             get
             {
-                return AppData + @"\MGT\";
+                return File.ReadAllLines(@"X:\db\cookies.txt")[1].Split('|')[0];
             }
             private set
             {
                 ;
             }
-
         }
 
-        public static string Mgt3Sqlite
+        public static string WfPvtGmtool
         {
             get
             {
-                return AppDataMGT + @"mgt3.sqlite";
+                return File.ReadAllLines(@"X:\db\cookies.txt")[0].Split('|')[0];
             }
             private set
             {
